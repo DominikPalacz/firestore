@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-// import { Observable } from 'rxjs'; //no!
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
+import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs/Observable'; // old
+//import 'rxjs/add/operator/map'; // old
+import { map} from 'rxjs/operators';
 
 interface Post {
   title: string;
