@@ -34,6 +34,7 @@ export class AppComponent {
 
   ngOnInit(){
     this.postsCol = this.afs.collection('posts');
+    // this.postsCol = this.afs.collection('posts', ref => ref.where('title', '==', 'value')); //to do szukania
     //this.posts = this.postsCol.valueChanges();
     this.posts = this.postsCol.snapshotChanges()
       .map(actions => {
