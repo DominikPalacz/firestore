@@ -4,6 +4,11 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 
+interface Post {
+  title: string;
+  content: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,12 +16,16 @@ import 'rxjs/add/operator/map'
 })
 export class AppComponent {
 
+  postsCol: AngularFirestoreCollection<Post>;
+  posts: Observable<Post[]>;
+
   constructor(private afs: AngularFirestore){
 
   }
 
   ngOnInit(){
-
+    this.postsCol = this.afs.collection('posts');
+    this.posts = this.postsCol.valueChanges();
   }
 
 }
