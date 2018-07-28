@@ -33,7 +33,9 @@ export class AppComponent {
   }
 
   addPost(){
-    this.afs.collection('posts').add({'title': this.title, 'content': this.content})
+    // this.afs.collection('posts').add({'title': this.title, 'content': this.content})
+    // my ID ;)
+    this.afs.collection('posts').doc('my-custom-id').set({'title': this.title, 'content': this.content})
   }
 
 }
